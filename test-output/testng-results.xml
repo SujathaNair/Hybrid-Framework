@@ -1,37 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-04-11T21:11:06 PDT" name="Default suite" finished-at="2024-04-11T21:11:33 PDT" duration-ms="27647">
+  <suite started-at="2024-04-17T22:09:58 PDT" name="Default suite" finished-at="2024-04-17T22:09:58 PDT" duration-ms="227">
     <groups>
     </groups>
-    <test started-at="2024-04-11T21:11:06 PDT" name="Default test" finished-at="2024-04-11T21:11:33 PDT" duration-ms="27647">
-      <class name="com.allianz.test.LoginTest">
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.allianz.test.LoginTest@4c1909a3]" started-at="2024-04-11T21:11:06 PDT" name="setup" finished-at="2024-04-11T21:11:14 PDT" duration-ms="8064" status="PASS">
+    <test started-at="2024-04-17T22:09:58 PDT" name="Default test" finished-at="2024-04-17T22:09:58 PDT" duration-ms="227">
+      <class name="com.allianz.test.ZDemoTest">
+        <test-method signature="validTest(java.lang.String,java.lang.String)[pri:0, instance:com.allianz.test.ZDemoTest@d9345cd]" started-at="2024-04-17T22:09:58 PDT" name="validTest" data-provider="validData" finished-at="2024-04-17T22:09:58 PDT" duration-ms="22" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Saul]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Saul123]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="invalidLoginTest()[pri:0, instance:com.allianz.test.LoginTest@4c1909a3]" started-at="2024-04-11T21:11:14 PDT" name="invalidLoginTest" finished-at="2024-04-11T21:11:17 PDT" duration-ms="3420" status="PASS">
+        </test-method> <!-- validTest -->
+        <test-method signature="validTest(java.lang.String,java.lang.String)[pri:0, instance:com.allianz.test.ZDemoTest@d9345cd]" started-at="2024-04-17T22:09:58 PDT" name="validTest" data-provider="validData" finished-at="2024-04-17T22:09:58 PDT" duration-ms="6" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Lia]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Lia123]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- invalidLoginTest -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:com.allianz.test.LoginTest@4c1909a3]" started-at="2024-04-11T21:11:17 PDT" name="teardown" finished-at="2024-04-11T21:11:18 PDT" duration-ms="456" status="PASS">
+        </test-method> <!-- validTest -->
+        <test-method signature="validTest(java.lang.String,java.lang.String)[pri:0, instance:com.allianz.test.ZDemoTest@d9345cd]" started-at="2024-04-17T22:09:58 PDT" name="validTest" data-provider="validData" finished-at="2024-04-17T22:09:58 PDT" duration-ms="5" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Ria]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Ria123]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- teardown -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.allianz.test.LoginTest@4c1909a3]" started-at="2024-04-11T21:11:18 PDT" name="setup" finished-at="2024-04-11T21:11:29 PDT" duration-ms="11052" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="validLoginTest()[pri:0, instance:com.allianz.test.LoginTest@4c1909a3]" started-at="2024-04-11T21:11:29 PDT" name="validLoginTest" finished-at="2024-04-11T21:11:33 PDT" duration-ms="4073" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- validLoginTest -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:com.allianz.test.LoginTest@4c1909a3]" started-at="2024-04-11T21:11:33 PDT" name="teardown" finished-at="2024-04-11T21:11:33 PDT" duration-ms="419" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- teardown -->
-      </class> <!-- com.allianz.test.LoginTest -->
+        </test-method> <!-- validTest -->
+      </class> <!-- com.allianz.test.ZDemoTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
