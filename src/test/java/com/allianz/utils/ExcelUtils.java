@@ -1,33 +1,34 @@
-package com.allianz.test;
+package com.allianz.utils;
 
 import java.io.FileInputStream;
 import java.io.IOException;
 
+import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-public class ZDemo2ExcelTest {
-
-	public static void main(String[] args) throws IOException {
-		// TODO Auto-generated method stub
-		FileInputStream file = new FileInputStream("src/test/resources/test_data/hrm_data.xlsx");
+public class ExcelUtils {
+	
+	public static Object[][] getSheetIntoTwoDimensionalArray(String path, String sheetName) throws IOException
+	{
+		FileInputStream file = new FileInputStream(path);
 		XSSFWorkbook book = new XSSFWorkbook(file);
-		XSSFSheet sheet =  book.getSheet("invalidLoginTest");
-		String value = sheet.getRow(0).getCell(0).getStringCellValue();
-		System.out.println(value);
+		XSSFSheet sheet =  book.getSheet(sheetName);
 		
-		// Write logic to print all cell values
+			
 		int rowCount =sheet.getPhysicalNumberOfRows();
 		int cellCount = sheet.getRow(0).getPhysicalNumberOfCells();
-		String [][]excelData= new String[rowCount-1][cellCount];
+		Object [][]excelData= new Object[rowCount-1][cellCount];
+		
+		DataFormatter format = new DataFormatter();
 		
 		for (int i=1; i<rowCount;i++)
 		{
 			for (int j=0;j<cellCount;j++)
 			{
-				String val =sheet.getRow(i).getCell(j).getStringCellValue();
+				excelData[i-1][j]  = format.formatCellValue(sheet.getRow(i).getCell(j));
 				//System.out.print(sheet.getRow(i).getCell(j).getStringCellValue() + " ");
-				excelData[i-1][j] = val;
+			
 				System.out.print(excelData[i-1][j] + " ");
 				
 				
@@ -37,8 +38,13 @@ public class ZDemo2ExcelTest {
 		book.close();
 		file.close();
 		
+		return excelData;
+		
 		
 
+
 	}
+	
+	
 
 }
