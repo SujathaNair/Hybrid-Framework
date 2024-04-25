@@ -7,19 +7,46 @@ import com.allianz.base.AutomationWrapper;
 
 public class LoginPage {
 	
-	public static void enterUsername(WebDriver driver, String username)
+	private WebDriver driver;
+	
+	public LoginPage(WebDriver driver)
+	{
+		this.driver=driver;
+		
+	}
+	
+	public void enterUsername( String username)
 	{
 		driver.findElement(By.name("username")).sendKeys(username);
 	}
-	public static void enterPassword(WebDriver driver,String password)
+	public  void enterPassword(String password)
 	{
 		driver.findElement(By.name("password")).sendKeys(password);
 	}
-	public static void clickonLogin(WebDriver driver)
+	public  void clickonLogin()
 	{
 		driver.findElement(By.xpath("//button[text()=' Login ']")).click();
 	}
 	
+	
+//	public static void clickonLogin(WebDriver driver)
+//	{
+//		driver.findElement(By.xpath("//button[text()=' Login ']")).click();
+//	}
+//	
+	// get invalid error message
+	public String getInvalidErrorMessage()
+	{
+		String errorActualText = driver.findElement(By.xpath("//p[text()='Invalid credentials']")).getText();
+		return errorActualText;
+	}
+	
+	// get Dashboard text
+		public String getDashboardText()
+		{
+			String dashboardActualText = driver.findElement(By.xpath("//h6[text()='Dashboard']")).getText();
+			return dashboardActualText;
+		}
 	
 
 }

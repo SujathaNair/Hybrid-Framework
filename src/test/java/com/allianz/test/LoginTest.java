@@ -22,13 +22,18 @@ public class LoginTest extends AutomationWrapper{
 		//driver.findElement(By.name("password")).sendKeys(password);;
 		//driver.findElement(By.xpath("//button[text()=' Login ']")).click();
 		
-		LoginPage.enterUsername(driver, username);
-		LoginPage.enterPassword(driver, password);
-		LoginPage.clickonLogin(driver);
+//		LoginPage.enterUsername(driver, username);
+//		LoginPage.enterPassword(driver, password);
+//		LoginPage.clickonLogin(driver);
+		
+		LoginPage loginPage = new LoginPage(driver);
+		loginPage.enterUsername(username);
+		loginPage.enterPassword(password);
+		loginPage.clickonLogin();
 		
 		//Assert the header dashboard
 		
-		String dashboardActualText = driver.findElement(By.xpath("//h6[text()='Dashboard']")).getText();
+		String dashboardActualText = loginPage.getDashboardText();
 		Assert.assertEquals(dashboardActualText, expectedHeader);
 		
 		
@@ -38,12 +43,19 @@ public class LoginTest extends AutomationWrapper{
 	
 	public void invalidLoginTest(String username, String password, String expectedError )
 	{
-		driver.findElement(By.name("username")).sendKeys(username);
-		driver.findElement(By.name("password")).sendKeys(password);
-		driver.findElement(By.xpath("//button[text()=' Login ']")).click();
+//		driver.findElement(By.name("username")).sendKeys(username);
+//		driver.findElement(By.name("password")).sendKeys(password);
+//		driver.findElement(By.xpath("//button[text()=' Login ']")).click();
+		
+		LoginPage loginPage = new LoginPage(driver);
+		loginPage.enterUsername(username);
+		loginPage.enterPassword(password);
+		loginPage.clickonLogin();
+		
+		
 		//Assert errormessage
 		
-		String errorActualText = driver.findElement(By.xpath("//p[text()='Invalid credentials']")).getText();
+		String errorActualText = loginPage.getInvalidErrorMessage();
 		Assert.assertEquals(errorActualText, expectedError);
 		
 		
