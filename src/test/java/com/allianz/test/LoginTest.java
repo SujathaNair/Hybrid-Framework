@@ -8,6 +8,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.allianz.base.AutomationWrapper;
+import com.allianz.pages.LoginPage;
 import com.allianz.utils.DataUtils;
 
 public class LoginTest extends AutomationWrapper{
@@ -17,9 +18,14 @@ public class LoginTest extends AutomationWrapper{
 	
 	public void validLoginTest(String username, String password, String expectedHeader)
 	{
-		driver.findElement(By.name("username")).sendKeys(username);;
-		driver.findElement(By.name("password")).sendKeys(password);;
-		driver.findElement(By.xpath("//button[text()=' Login ']")).click();
+		//driver.findElement(By.name("username")).sendKeys(username);;
+		//driver.findElement(By.name("password")).sendKeys(password);;
+		//driver.findElement(By.xpath("//button[text()=' Login ']")).click();
+		
+		LoginPage.enterUsername(driver, username);
+		LoginPage.enterPassword(driver, password);
+		LoginPage.clickonLogin(driver);
+		
 		//Assert the header dashboard
 		
 		String dashboardActualText = driver.findElement(By.xpath("//h6[text()='Dashboard']")).getText();
