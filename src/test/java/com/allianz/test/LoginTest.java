@@ -1,13 +1,10 @@
 package com.allianz.test;
 
-import static org.testng.Assert.ARRAY_MISMATCH_TEMPLATE;
-
-import org.openqa.selenium.By;
 import org.testng.Assert;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.allianz.base.AutomationWrapper;
+import com.allianz.pages.DashBoardPage;
 import com.allianz.pages.LoginPage;
 import com.allianz.utils.DataUtils;
 
@@ -32,8 +29,9 @@ public class LoginTest extends AutomationWrapper{
 		loginPage.clickonLogin();
 		
 		//Assert the header dashboard
+		DashBoardPage dashBoardPage = new DashBoardPage(driver);
 		
-		String dashboardActualText = loginPage.getDashboardText();
+		String dashboardActualText = dashBoardPage.getDashboardText();
 		Assert.assertEquals(dashboardActualText, expectedHeader);
 		
 		

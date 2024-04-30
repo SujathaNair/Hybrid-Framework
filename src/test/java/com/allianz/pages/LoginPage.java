@@ -3,29 +3,39 @@ package com.allianz.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import com.allianz.base.AutomationWrapper;
+import com.allianz.base.WebDriverKeywords;
 
-public class LoginPage {
+public class LoginPage extends WebDriverKeywords {
+	
+	private By usernameLocator=By.name("username");
+	private By passwordLocator =By.name("password");
+	private By clickonLoginLocator = By.xpath("//button[text()=' Login ']");
+	
 	
 	private WebDriver driver;
 	
 	public LoginPage(WebDriver driver)
 	{
+		super(driver);
 		this.driver=driver;
 		
 	}
 	
 	public void enterUsername( String username)
 	{
-		driver.findElement(By.name("username")).sendKeys(username);
+		//driver.findElement(usernameLocator).sendKeys(username);
+		super.setInputText(usernameLocator, username);
+		
 	}
 	public  void enterPassword(String password)
 	{
-		driver.findElement(By.name("password")).sendKeys(password);
+		//driver.findElement(passwordLocator).sendKeys(password);
+		super.setInputText(passwordLocator, password);
 	}
 	public  void clickonLogin()
 	{
-		driver.findElement(By.xpath("//button[text()=' Login ']")).click();
+		//driver.findElement(By.xpath("//button[text()=' Login ']")).click();
+		super.clickElement(clickonLoginLocator);
 	}
 	
 	
@@ -41,12 +51,12 @@ public class LoginPage {
 		return errorActualText;
 	}
 	
-	// get Dashboard text
-		public String getDashboardText()
-		{
-			String dashboardActualText = driver.findElement(By.xpath("//h6[text()='Dashboard']")).getText();
-			return dashboardActualText;
-		}
+	public String usernamePlaceHolder()
+	{
+		return driver.findElement(usernameLocator).getAttribute("placeholder");
+	}
+	
+	
 	
 
 }
